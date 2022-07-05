@@ -101,7 +101,7 @@ Please specify if your code will use a GPU or not for the evaluation of your mod
 
 You **don't** need to upload the provided BASALT dataset or pretrained models in the submission, and it will be provided in online submissions at `MINERL_DATA_ROOT` path, should you need it.
 
-**Please** only keep files needed for the submission; too large submissions may fail randomly. Having large git history is fine.
+**Please** only add files needed for the submission; too large submissions may fail randomly. Having large git history is fine.
 
 ## How to submit!
 
