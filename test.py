@@ -27,13 +27,7 @@ def main():
 
             # Step your model here.
             # Currently, it's doing random actions
-            # for 200 steps before quitting the episode
             random_act = env.action_space.sample()
-
-            if step_counter < 200:
-                random_act["ESC"] = 0
-            else:
-                random_act["ESC"] = 1
 
             obs, reward, done, info = env.step(random_act)
 
