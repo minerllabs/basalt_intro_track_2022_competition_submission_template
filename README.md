@@ -1,12 +1,10 @@
-# NeurIPS 2022: MineRL BASALT Competition Starter Kit
+# NeurIPS 2022: MineRL BASALT Competition Intro Track Starter Kit
 
 [![Discord](https://img.shields.io/discord/565639094860775436.svg)](https://discord.gg/BT9uegr)
 
-This repository is the main MineRL BASALT 2022 Competition **submission template** (only for the "basalt" track")!
+This repository is the MineRL BASALT 2022 Competition Intro Track **submission template**.
 
-There will be a separate submission template for the "intro" track of the competition.
-
-MineRL BASALT is a competition on solving human-judged tasks. The tasks in this competition do not have a pre-defined reward function: the goal is to produce trajectories that are judged by real humans to be effective at solving a given task.
+MineRL BASALT Intro Track is designed to help you get familiar with the submission system and MineRL. Your task is to create an agent which can obtain a diamond shovel, starting from a random, fresh world.
 
 See [the homepage](https://minerl.io/basalt/) of the competition for further details.
 
@@ -20,18 +18,18 @@ See [the homepage](https://minerl.io/basalt/) of the competition for further det
 
 # How to Submit a Model on AICrowd.
 
-In brief: you define your Python environment using Anaconda environment files, and AICrowd system will use the `run.py` file to train and evaluate your agents.
+In brief: you define your Python environment using Anaconda environment files, and AICrowd system will use the `run.py` file to train and evaluate your agent.
 
-You submit pretrained models, the evaluation code and the training code. Training code should produce the same models you upload as part of your submission. You **must** upload the training code; which will be used to retrain and validate finalist submissions.
+You submit pretrained models and the evaluation code. You don't need to submit training code.
 
-Your evaluation code (`test_<env_name>.py`) only needs to control the agent and accomplish the environment's task. The evaluation server will handle recording of videos. Do not change the number of episodes played or maximum number of steps executed: the submissions will fail otherwise.
+Your evaluation code (`test.py`) only needs to control the agent and accomplish the environment's task. The evaluation server will handle the rest. Do not change the number of episodes played or maximum number of steps executed: the submissions will fail otherwise.
 
 ## Setup
 
 1.  **Clone the github repository** or press the "Use this Template" button on GitHub!
 
     ```
-    git clone https://github.com/minerllabs/basalt_2022_competition_submission_template.git
+    git clone https://github.com/minerllabs/basalt_intro_track_2022_competition_submission_template.git
     ```
 
 2. **Install** MineRL specific dependencies! Mainly, make sure you have Java JDK 8! See more details [here](https://minerl.readthedocs.io/en/v1.0.0/tutorials/index.html)
@@ -42,7 +40,7 @@ Your evaluation code (`test_<env_name>.py`) only needs to control the agent and 
        * **Create your new conda environment**
 
             ```sh
-            cd basalt_2022_competition_submission_template
+            cd basalt_intro_track_2022_competition_submission_template
             conda env create -f environment.yml 
             conda activate minerl
             ```
@@ -63,23 +61,19 @@ If above are too restrictive for defining your environment, see [this Discourse 
 ## What should my code structure be like ?
 
 Please follow the example structure shared in the starter kit for the code structure.
-The different files and directories have following meaning:
+The different files and directories have the following meaning:
 
 ```
 .
-├── aicrowd.json                     # Submission meta information like your username
-├── apt.txt                          # Packages to be installed inside docker image
-├── config.py                        # Config for debugging submissions
-├── data                             # The downloaded data and pretrained OpenAI models, the path to directory is also available as `MINERL_DATA_ROOT` env variable
-├── environment.yml                  # Conda environment description
-├── LICENCE                          # Licence
-├── run.py                           # The file that runs training and evaluation
-├── test_BuildVillageHouse.py        # IMPORTANT: Your testing/inference phase code.
-├── test_CreateVillageAnimalPen.py   # IMPORTANT: Your testing/inference phase code.
-├── test_FindCave.py                 # IMPORTANT: Your testing/inference phase code.
-├── test_MakeWaterfall.py            # IMPORTANT: Your testing/inference phase code.
-├── train                            # IMPORTANT: Your trained models MUST be saved inside this directory
-└── train.py                         # IMPORTANT: Your training code. Running this should produce the same agent as you upload as part of the agent.
+├── aicrowd.json      # Submission meta information like your username
+├── apt.txt           # Packages to be installed inside docker image
+├── config.py         # Config for debugging submissions
+├── data              # The downloaded data and pretrained OpenAI models, the path to directory is also available as `MINERL_DATA_ROOT` env variable
+├── environment.yml   # Conda environment description
+├── LICENCE           # Licence
+├── run.py            # The file that runs training and evaluation
+├── test.py           # IMPORTANT: Your testing/inference phase code.
+└── train             # IMPORTANT: Your trained models MUST be saved inside this directory
 ```
 
 Finally, **you must specify an AIcrowd submission JSON in `aicrowd.json` to be scored!** 
@@ -94,7 +88,7 @@ The `aicrowd.json` of each submission should contain the following content:
   "license": "MIT",
   "gpu": true,
   "debug": false,
-  "track": "basalt"
+  "track": "intro"
 }
 ```
 
@@ -120,9 +114,9 @@ Then you can create a submission by making a _tag push_ to your repository on [h
 Then you can add the correct git remote, and finally submit by doing:
 
 ```
-cd competition_submission_starter_template
+cd basalt_intro_track_2022_competition_submission_template
 # Add AIcrowd git remote endpoint
-git remote add aicrowd git@gitlab.aicrowd.com:<YOUR_AICROWD_USER_NAME>/basalt_2022_competition_submission_template.git
+git remote add aicrowd git@gitlab.aicrowd.com:<YOUR_AICROWD_USER_NAME>/basalt_intro_track_2022_competition_submission_template.git
 git push aicrowd master
 
 # Create a tag for your submission and push
@@ -134,7 +128,7 @@ git push aicrowd submission-v0.1
 # then pushing a new tag will **not** trigger a new evaluation.
 ```
 
-You now should be able to see the details of your submission at: `https://gitlab.aicrowd.com/<YOUR_AICROWD_USER_NAME>/basalt_2022_competition_submission_template/issues/`
+You now should be able to see the details of your submission at: `https://gitlab.aicrowd.com/<YOUR_AICROWD_USER_NAME>/basalt_intro_track_2022_competition_submission_template/issues/`
 
 **Best of Luck** :tada: :tada:
 
@@ -144,9 +138,7 @@ To upload large model files (e.g., your finetuned versions of the OpenAI VPT mod
 
 # Ensuring that your code works.
 
-You can perform local training and evaluation by simply running `python run.py`, which then runs `train.py` and all four `test_<env_name>.py` scripts.
-
-**Note** that you do not need to record videos in your code! AICrowd server will handle this. Your code only needs to play the games.
+You can perform local training and evaluation by simply running `python run.py`, which then runs the `test.py` script.
 
 # Team
 
@@ -158,7 +150,7 @@ The BASALT competition is organized by the following team:
 * [Anssi Kanervisto](https://www.microsoft.com/en-us/research/people/t-anssik/) (Microsoft Research)
 * [Stephanie Milani](https://stephmilani.github.io/) (Carnegie Mellon University)
 * [Karolis Ramanauskas](https://ka.rol.is/) (Independent)
-* Byron V. Galbraith (Seva Inc.)
+* [Byron V. Galbraith](https://github.com/bgalbraith) (Seva Inc.)
 * Steven H. Wang (ETH Zürich)
 * [Sander Schulhoff](https://trigaten.github.io/) (University of Maryland)
 * Brandon Houghton (OpenAI)
