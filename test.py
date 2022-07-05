@@ -8,7 +8,7 @@ from config import EVAL_EPISODES, EVAL_MAX_STEPS
 
 coloredlogs.install(logging.DEBUG)
 
-MINERL_GYM_ENV = 'MineRLBasaltMakeWaterfall-v0'
+MINERL_GYM_ENV = 'MineRLObtainDiamondShovel-v0'
 
 
 def main():
