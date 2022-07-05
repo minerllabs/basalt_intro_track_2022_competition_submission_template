@@ -87,7 +87,7 @@ The `aicrowd.json` of each submission should contain the following content:
   "description": "sample description about your awesome agent",
   "license": "MIT",
   "gpu": true,
-  "debug": false,
+  "debug": true,
   "track": "intro"
 }
 ```
@@ -134,7 +134,7 @@ You now should be able to see the details of your submission at: `https://gitlab
 
 ## Large model files
 
-To upload large model files (e.g., your finetuned versions of the OpenAI VPT models, which can reach gigabytes), use git LFS. See instructions [here](https://discourse.aicrowd.com/t/how-to-upload-large-files-size-to-your-submission/2304).
+To upload large model files (e.g., your fine-tuned versions of the OpenAI VPT models, which can reach gigabytes), use git LFS. See instructions [here](https://discourse.aicrowd.com/t/how-to-upload-large-files-size-to-your-submission/2304).
 
 # Ensuring that your code works.
 
