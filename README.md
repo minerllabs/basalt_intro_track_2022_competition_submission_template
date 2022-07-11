@@ -6,7 +6,7 @@ This repository is the MineRL BASALT 2022 Competition Intro Track **submission t
 
 MineRL BASALT Intro Track is designed to help you get familiar with the submission system and MineRL. Your task is to create an agent which can obtain a diamond shovel, starting from a random, fresh world.
 
-See [the homepage](https://minerl.io/basalt/) of the competition for further details.
+See [the AICrowd competition page](https://www.aicrowd.com/challenges/neurips-2022-minerl-basalt-competition) for further information.
 
 **This repository contains**:
 *  **Documentation** on how to submit your agent to the leaderboard
