@@ -125,7 +125,7 @@ git tag -am "submission-v0.1" submission-v0.1
 git push aicrowd master
 git push aicrowd submission-v0.1
 
-# Note : If the contents of your repository (latest commit hash) does not change,
+# Note : If the contents of your repository (latest commit hash) do not change,
 # then pushing a new tag will **not** trigger a new evaluation.
 ```
 
